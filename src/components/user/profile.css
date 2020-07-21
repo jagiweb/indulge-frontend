@@ -1,0 +1,27 @@
+.float-right{
+    float: right;
+}
+
+.float-left{
+    float: left;
+}
+
+.margin-t-100{
+    margin-top: 100px;
+}
+.margin-t-50{
+    margin-top: 50px;
+}
+
+.text-center{
+    text-align: center;
+}
+
+.p-10{
+    padding: 10px;
+}
+
+.bold{
+    font-weight: bold;
+    text-transform: capitalize;
+}

@@ -3,8 +3,16 @@ const baseURL = "http://localhost:3001"
 const signInURL = `${baseURL}/sign-in`
 const signUpURL = `${baseURL}/sign-up`
 const validateURL = `${baseURL}/validate`
+const createTournamentURL = `${baseURL}/create-tournament`
+const createSeasonURL = `${baseURL}/create-season/`
+const createMatchURL =  `${baseURL}/create-match/`
+const createTeamURL =  `${baseURL}/create-team/`
+const getTournamentsURL = `${baseURL}/get-tournaments/`
+const getOneTournamentURL = `${baseURL}/get-tournament/`
+const getMatchURL = `${baseURL}/get-match/`
+const getSeasonURL = `${baseURL}/get-season/`
+const getTeamURL = `${baseURL}/get-team/`
 
-// Make a post request to a given URL with a given data object as the body and return the Promise
 const post = (url, data) => {
   const configurationObject = {
     method: "POST",
@@ -17,31 +25,60 @@ const post = (url, data) => {
   return fetch(url, configurationObject)
 }
 
-// Make a get request to a given URL and return the Promise. If a token has been provided, include it as a header called Authorization
 const get = (url, token) => {
   return token ? fetch(url, { headers: { AUTHORIZATION: token } }) : fetch(url)
 }
 
-// Use the get function to make a request to the validate route and parse the response into JSON
+const getData = (url, id) => {
+  return fetch(url + id)
+}
+
 const validate = token => {
   return get(validateURL, token).then(response => response.json())
 }
 
-// Use the post function to make a request to the validate route and parse the response into JSON
 const signIn = data => {
-    console.log(data)
   return post(signInURL, data).then(response => response.json())
 }
 
 const signUp = data => {
-  console.log(data)
 return post(signUpURL, data).then(response => response.json())
 }
 
-// Use the get function to make a request to the items route and parse the response into JSON
-// const getItems = token => {
-//   return get(itemsURL, token).then(response => response.json())
-// }
+const createTournament = data => {
+  return post(createTournamentURL, data).then(response => response.json())
+}
 
-// Export the necessary functions as part of one object which we will import elsewhere
-export default { signIn, validate, signUp }
+const createSeason = data => {
+  return post(createSeasonURL, data).then(response => response.json())
+}
+
+const createMatch = data => {
+  return post(createMatchURL, data).then(response => response.json())
+}
+
+const createTeam = data => {
+  return post(createTeamURL, data).then(response => response.json())
+}
+
+const getTournaments = id => {
+  return getData(getTournamentsURL, id).then(response => response.json())
+}
+const getTournament = id => {
+  return getData(getOneTournamentURL, id).then(response => response.json())
+}
+
+const getSeason = id => {
+  return getData(getSeasonURL, id).then(response => response.json())
+}
+
+const getMatch = id => {
+  return getData(getMatchURL, id).then(response => response.json())
+}
+
+const getTeam = id => {
+  return getData(getTeamURL, id).then(response => response.json())
+}
+
+
+export default { getTournament, signIn, validate, signUp, createSeason, createTournament, createMatch, createTeam, getTournaments, getSeason, getMatch, getTeam }

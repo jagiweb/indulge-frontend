@@ -1,5 +1,5 @@
 import React from 'react'
-import API from "../API"
+import API from "../../API"
 
 
 class SignUp extends React.Component {
@@ -24,14 +24,13 @@ class SignUp extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
-    // Send the data from the form to the server in order to authenticate the user
     API.signUp(this.state)
-      // The server then responds with the username and a token generated from the user's id to confirm we've been authenticated successfully. We then use the signIn function passed down in props to set the state of username in App to be the username we've been sent back and store the token we've been sent back in localStorage
-      .then(user => this.props.signIn(user.username, user.token))
+      .then(user => this.props.signIn(user.username, user.token, user))
   }
 
   render() {
     return(
+    
       <form onSubmit={this.handleSubmit}>
         <label>Name:</label>
         <input type="text" required name="name" onChange={this.handleChange}/><br/>
@@ -44,7 +43,7 @@ class SignUp extends React.Component {
         <label>Password:</label>
         <input type="password" minlength="8" required name="password" onChange={this.handleChange}/><br/>
 
-        <input type="submit" value="Sign In"/>
+        <input type="submit" value="Sign Up"/>
       </form>
     )
   }
