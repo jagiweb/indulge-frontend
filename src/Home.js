@@ -50,7 +50,7 @@ class Home extends React.Component {
                 <div className="text-center col-lg-3 col-md-3 col-sm-6">                     
                     <Modal  show={this.state.SignInModal} onHide={this.SignInModalClose}>
                         <Modal.Body className="back-white">
-                            <SignIn signIn={this.props.signIn} />
+                            <SignIn SignInModalClose={this.SignInModalClose} signIn={this.props.signIn} />
                         </Modal.Body>
                         <Modal.Footer className="back-white">
                         <Button variant="btn btn-dark" onClick={this.SignInModalClose}>
@@ -63,7 +63,7 @@ class Home extends React.Component {
                 <div className="text-center col-lg-3 col-md-3 col-sm-6">  
                     <Modal  show={this.state.SignUpModal} onHide={this.SignUpModalClose}>
                         <Modal.Body className="back-white">
-                            <SignUp signIn={this.props.signIn} close={this.SignUpModalClose} />
+                            <SignUp SignUpModalClose={this.SignUpModalClose} signIn={this.props.signIn} close={this.SignUpModalClose} />
                         </Modal.Body>
                         <Modal.Footer className="back-white">
                         <Button variant="btn btn-dark" onClick={this.SignUpModalClose}>

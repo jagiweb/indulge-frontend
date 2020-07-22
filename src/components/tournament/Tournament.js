@@ -2,7 +2,7 @@ import React from 'react'
 import API from '../../API'
 import SeasonList from '../season/SeasonList'
 import SeasonForm from '../season/SeasonForm'
-import { Modal, Button } from 'react-bootstrap'
+import { Modal, Button, Table } from 'react-bootstrap'
 
 class Tournament extends React.Component {
     constructor(props) {
@@ -39,6 +39,9 @@ class Tournament extends React.Component {
                 id: data.tournament.id
 
             }))
+
+            API.getMatches(this.props.match.params.id)
+                .then()
     }
 
     renderSeasons = () => {
@@ -47,29 +50,39 @@ class Tournament extends React.Component {
 
     addSeasons = data => {
         this.setState({
-            seasons: [...this.state.seasons, data.season]
+            seasons: [...this.state.seasons, data]
         })
     }
 
     render() { 
         const {name, city, country, types, seasons, id} = this.state
-        console.log(this.state.seasons)
         return ( 
             <div>
                 <button className="margin-t-100 btn btn-dark" onClick={this.show}>Add Season</button>
                 <div className="text-center">
-                    <h1>Tournament name: {name}</h1>
-                    <h2>{country}</h2>
-                    <h3>{city}</h3>
-                    <h4>{types}</h4>
+                    <h1>Tournament {name}</h1>
+                    <h5>{country} - {city} - {types}</h5>
+
                     <h4> Season's: </h4>
-                    {seasons !== null ?  this.renderSeasons() : <p>No currently Seasons</p>}
+                    <Table striped bordered hover>
+                        <thead>
+                            <tr>
+                                <th>Season</th>
+                                <th>Starting Season</th>
+                                <th>Ending Season</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {seasons !== null ?  this.renderSeasons() : <p>No currently Seasons</p>}
+                        </tbody>
+                    </Table>
+                    
                 </div>
 
                 <div className="text-center col-lg-3 col-md-3 col-sm-6">                     
                     <Modal  show={this.state.show} onHide={this.close}>
                         <Modal.Body className="back-white">
-                            <SeasonForm tournament_id={id} addSeasons={this.addSeasons} />
+                            <SeasonForm close={this.close} tournament_id={id} addSeasons={this.addSeasons} />
                         </Modal.Body>
                         <Modal.Footer className="back-white">
                         <Button variant="btn btn-dark" onClick={this.close}>

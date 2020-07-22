@@ -10,9 +10,12 @@ class TournamentList extends React.Component {
     render() { 
         const {name, country, city, types, id} = this.props.tournament
         return ( 
-            <div> 
-                <p><Link to={`/tournament/${ id }`} > {name}</Link> - {country} - {city} - {types}</p>
-            </div>
+            <tr>
+                <td><Link to={`/tournament/${ id }`} > {name}</Link></td>
+                <td>{country}</td>
+                <td>{city}</td>
+                <td>{types}</td>
+            </tr>
          );
     }
 }

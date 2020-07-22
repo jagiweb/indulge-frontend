@@ -1,17 +1,18 @@
-// Define the URLs for our different routes
 const baseURL = "http://localhost:3001"
 const signInURL = `${baseURL}/sign-in`
 const signUpURL = `${baseURL}/sign-up`
 const validateURL = `${baseURL}/validate`
-const createTournamentURL = `${baseURL}/create-tournament`
-const createSeasonURL = `${baseURL}/create-season/`
-const createMatchURL =  `${baseURL}/create-match/`
-const createTeamURL =  `${baseURL}/create-team/`
-const getTournamentsURL = `${baseURL}/get-tournaments/`
-const getOneTournamentURL = `${baseURL}/get-tournament/`
-const getMatchURL = `${baseURL}/get-match/`
-const getSeasonURL = `${baseURL}/get-season/`
-const getTeamURL = `${baseURL}/get-team/`
+const createTournamentURL = `${baseURL}/tournament`
+const createSeasonURL = `${baseURL}/season/`
+const createMatchURL =  `${baseURL}/match/`
+const createTeamURL =  `${baseURL}/team/`
+const getTournamentsURL = `${baseURL}/tournament-s/`
+const getOneTournamentURL = `${baseURL}/tournament/`
+const getMatchURL = `${baseURL}/match/`
+const getMatchesURL = `${baseURL}/match-es/`
+const getSeasonURL = `${baseURL}/season/`
+const getTeamURL = `${baseURL}/team/`
+const getTeamsURL = `${baseURL}/team-s/`
 
 const post = (url, data) => {
   const configurationObject = {
@@ -76,9 +77,17 @@ const getMatch = id => {
   return getData(getMatchURL, id).then(response => response.json())
 }
 
+const getMatches = id => {
+  return getData(getMatchesURL, id).then(response => response.json())
+}
+
 const getTeam = id => {
   return getData(getTeamURL, id).then(response => response.json())
 }
 
+const getTeams = id => {
+  return getData(getTeamsURL, id).then(response => response.json())
+}
 
-export default { getTournament, signIn, validate, signUp, createSeason, createTournament, createMatch, createTeam, getTournaments, getSeason, getMatch, getTeam }
+
+export default { getTournament, signIn, validate, signUp, createSeason, createTournament, createMatch, createTeam, getTournaments, getSeason, getMatch, getTeam, getMatches, getTeams }

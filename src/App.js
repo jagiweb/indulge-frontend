@@ -6,6 +6,7 @@ import Profile from "./components/user/Profile"
 import Tournament from './components/tournament/Tournament'
 import NavBar from './components/layout/NavBar'
 import Season from './components/season/Season'
+import Team from './components/team/Team'
 
 class App extends React.Component {
   constructor(){
@@ -13,7 +14,8 @@ class App extends React.Component {
     this.state = {
       username: null,
       user: null,
-      tournaments: []
+      tournaments: [],
+      token: null
     }
   }
 
@@ -25,16 +27,18 @@ class App extends React.Component {
    
   }
 
-  
-
   signIn = (username, token, user) => {
-    this.setState({
-      username: username,
-      user: user,
-      user_id: user.id,
-      tournaments: user.tournaments
-    })
-    localStorage.token = token
+    if (token === undefined){
+      localStorage.removeItem("token")
+    }else{
+      localStorage.token = token
+      this.setState({
+        username: username,
+        user: user,
+        user_id: user.id,
+        tournaments: user.tournaments
+      })
+    }
   }
 
   signOut = () => {
@@ -49,10 +53,10 @@ class App extends React.Component {
 
       <div className="container">
         {this.state.username ? <NavBar signOut={this.signOut} username={this.state.username}/> : null}
-
         {this.state.username !== null ? <Redirect to="/profile" /> : <Redirect to="/"/>}
         <Route exact path="/tournament/:id" component={Tournament} />
         <Route exact path="/season/:id" component={Season} />
+        <Route exact path="/team/:id" component={Team} />
         <Route exact path="/profile" component={() => <Profile addTournament={this.addTournament} tournaments={this.state.tournaments} user_id={this.state.user_id} user={this.state.user} signIn={this.signIn}/> } />
         <Route exact path="/" component={() => <Home username={this.state.username} signIn={this.signIn}  signOut={this.signOut}/>} />
       </div>

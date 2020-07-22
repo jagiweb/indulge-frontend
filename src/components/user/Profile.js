@@ -1,5 +1,5 @@
 import React from 'react'
-import { Modal, Button } from 'react-bootstrap'
+import { Modal, Button, Table } from 'react-bootstrap'
 import TournamentForm from '../tournament/TournamentForm'
 import TournamentList from '../tournament/TournamentList'
 import API from '../../API'
@@ -51,13 +51,26 @@ class Profile extends React.Component {
                     <h2 className="margin-t-50 text-center bold">All your tournaments</h2>
                 </div>
                 <div className="margin-t-50">
-                    {this.renderTournaments()}
+                    <Table striped bordered hover>
+                        <thead>
+                            <tr>
+                                <th>League</th>
+                                <th>Country</th>
+                                <th>City</th>
+                                <th>Location</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {this.renderTournaments()}
+                        </tbody>
+                    </Table>
+                    
                 </div>
                 <div className="text-center col-lg-3 col-md-3 col-sm-6">  
                     
                     <Modal  show={this.state.show} onHide={this.close}>
                         <Modal.Body className="back-white">
-                            <TournamentForm addTournament={this.addTournament} user={this.props.user} />
+                            <TournamentForm close={this.close} addTournament={this.addTournament} user={this.props.user} />
                         </Modal.Body>
                         <Modal.Footer className="back-white">
                         <Button variant="btn btn-dark" onClick={this.close}>

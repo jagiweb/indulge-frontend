@@ -19,25 +19,52 @@ class SeasonForm extends React.Component {
     }
 
     handleSubmit = (e) => {
-    e.preventDefault()
-    API.createSeason(this.state)
-        .then(data => this.props.addSeasons(data))
+        this.props.close()
+        e.preventDefault()
+        API.createSeason(this.state)
+            .then(data => this.props.addSeasons(data))
     }
 
     render() { 
         return ( 
-            <div>
+
                 <form onSubmit={this.handleSubmit}>
-                    <label>Name:</label>
-                    <input type="text" required name="name" onChange={this.handleChange}/><br/>
-                    <label>Start Date:</label>
-                    <input type="date" required name="start_date" onChange={this.handleChange}/><br/>
-                    <label>End Date:</label>
-                    <input type="date" required name="end_date" onChange={this.handleChange}/><br/>
-        
-                    <input type="submit" value="Create "/>
+                    <h3 className="m-tb-20 text-center">Add Season</h3>
+                    <div className="row">
+                    <div class="col-md-2"></div>
+                    <div className="col-md-2">
+                        <label>Name</label>
+                    </div>
+                    <div className="col-md-2">
+                        <input type="text" placeholder="Team name" name="name" onChange={this.handleChange}/><br/>
+                    </div>
+                    </div>
+                    
+                    <div className="row">
+                    <div class="col-md-2"></div>
+                    <div className="col-md-2">
+                        <label>Start date</label>
+                    </div>
+                    <div className="col-md-2">
+                        <input type="date" required name="start_date" onChange={this.handleChange}/><br/>
+                    </div>
+                    </div>
+                    <div className="row">
+                    <div class="col-md-2"></div>
+                    <div className="col-md-2">
+                        <label>End date</label>
+                    </div>
+                    <div className="col-md-2">
+                        <input type="date" required name="end_date" onChange={this.handleChange}/><br/>
+                    </div>
+                    </div>
+                    <div className="row">
+                    <div className="col-md-12 text-center m-t-20">
+                        <input className="btn btn-success" type="submit" value="Add Season"/>
+                    </div>
+                    </div>  
                 </form>
-            </div>
+            
          );
     }
 }
