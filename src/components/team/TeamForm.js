@@ -60,7 +60,7 @@ class TeamForm extends React.Component {
                   </div>
                   <div className="row">
                     <div className="col-md-12 text-center m-t-20">
-                      <input className="btn btn-success" type="submit" value="Sign Up"/>
+                      <input className="btn btn-success" type="submit" value="Add Team"/>
                     </div>
                   </div>  
                 </form>
