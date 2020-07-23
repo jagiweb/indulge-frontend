@@ -1,4 +1,4 @@
-const baseURL = "http://localhost:3001"
+const baseURL = "https://indulge-challenge-backend.herokuapp.com/"
 const signInURL = `${baseURL}/sign-in`
 const signUpURL = `${baseURL}/sign-up`
 const validateURL = `${baseURL}/validate`
