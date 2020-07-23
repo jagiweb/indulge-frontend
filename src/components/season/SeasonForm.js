@@ -36,7 +36,7 @@ class SeasonForm extends React.Component {
                         <label>Name</label>
                     </div>
                     <div className="col-md-2">
-                        <input type="text" placeholder="Team name" name="name" onChange={this.handleChange}/><br/>
+                        <input type="text" placeholder="Season name" name="name" onChange={this.handleChange}/><br/>
                     </div>
                     </div>
                     
