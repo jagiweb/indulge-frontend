@@ -33,7 +33,7 @@ class TeamForm extends React.Component {
                   <div className="row">
                     <div class="col-md-2"></div>
                     <div className="col-md-2">
-                      <label>Name</label>
+                      <label>Name:</label>
                     </div>
                     <div className="col-md-2">
                       <input type="text" placeholder="Team name" name="name" onChange={this.handleChange}/><br/>
@@ -43,7 +43,7 @@ class TeamForm extends React.Component {
                   <div className="row">
                     <div class="col-md-2"></div>
                     <div className="col-md-2">
-                     <label>Country</label>
+                     <label>Country:</label>
                     </div>
                     <div className="col-md-2">
                       <input type="text" placeholder="Optional" name="country" onChange={this.handleChange}/><br/>
@@ -52,7 +52,7 @@ class TeamForm extends React.Component {
                   <div className="row">
                     <div class="col-md-2"></div>
                     <div className="col-md-2">
-                     <label>City</label>
+                     <label>City:</label>
                     </div>
                     <div className="col-md-2">
                       <input type="text" placeholder="Optional" name="city" onChange={this.handleChange}/><br/>

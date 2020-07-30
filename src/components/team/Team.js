@@ -24,7 +24,7 @@ class Team extends React.Component {
     render() { 
         const {name, country, city} = this.state
         return ( 
-            <div>
+            <div className="text-center">
                 <h2>{name}</h2>
                 <h3>{country}</h3>
                 <h4>{city}</h4>
