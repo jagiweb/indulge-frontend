@@ -40,7 +40,7 @@ class Home extends React.Component {
             <Fragment>
                 <div className="text-center m-t-50">
                     <h1>Welcome to Indulge</h1>
-                    <h5>Create your leagues, seasons and teams and keep track of your records </h5>
+                    <h5>Create your Leagues, Seasons and Teams and keep track of your records </h5>
                 </div>
                 
                 <div className="m-t-300 text-center">

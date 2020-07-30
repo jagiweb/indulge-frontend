@@ -55,7 +55,7 @@ class SignUp extends React.Component {
         <div className="row">
           <div class="col-md-2"></div>
           <div className="col-md-2">
-            <label>Username</label>
+            <label>Username:</label>
           </div>
           <div className="col-md-2">
             <input type="text" required name="username" onChange={this.handleChange}/><br/>
