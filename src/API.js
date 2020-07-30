@@ -20,6 +20,7 @@ const createTeamURL =  `${baseURL}/team/`
 const getTeamURL = `${baseURL}/team/`
 const getTeamsURL = `${baseURL}/team-s/`
 
+// POST FUNCTION
 const post = (url, data) => {
   const configurationObject = {
     method: "POST",
@@ -32,6 +33,7 @@ const post = (url, data) => {
   return fetch(url, configurationObject)
 }
 
+// GET FUNCTION
 const get = (url, token) => {
   return token ? fetch(url, { headers: { AUTHORIZATION: token } }) : fetch(url)
 }
@@ -40,10 +42,12 @@ const getData = (url, id) => {
   return fetch(url + id)
 }
 
+// VALIDATE FUNCTION
 const validate = token => {
   return get(validateURL, token).then(response => response.json())
 }
 
+// SIGN IN/SIGN UP FUNCTIONS
 const signIn = data => {
   return post(signInURL, data).then(response => response.json())
 }
@@ -52,22 +56,10 @@ const signUp = data => {
 return post(signUpURL, data).then(response => response.json())
 }
 
+// TOURNAMENTS FUNCTIONS
 const createTournament = data => {
   return post(createTournamentURL, data).then(response => response.json())
 }
-
-const createSeason = data => {
-  return post(createSeasonURL, data).then(response => response.json())
-}
-
-const createMatch = data => {
-  return post(createMatchURL, data).then(response => response.json())
-}
-
-const createTeam = data => {
-  return post(createTeamURL, data).then(response => response.json())
-}
-
 const getTournaments = id => {
   return getData(getTournamentsURL, id).then(response => response.json())
 }
@@ -75,16 +67,32 @@ const getTournament = id => {
   return getData(getOneTournamentURL, id).then(response => response.json())
 }
 
+// SEASONS FUNCTIONS
+
+const createSeason = data => {
+  return post(createSeasonURL, data).then(response => response.json())
+}
 const getSeason = id => {
   return getData(getSeasonURL, id).then(response => response.json())
 }
 
+// MATCHES FUNCTIONS
+
+const createMatch = data => {
+  return post(createMatchURL, data).then(response => response.json())
+}
 const getMatch = id => {
   return getData(getMatchURL, id).then(response => response.json())
 }
 
 const getMatches = id => {
   return getData(getMatchesURL, id).then(response => response.json())
+}
+
+// TEAMS FUNCTIONS
+
+const createTeam = data => {
+  return post(createTeamURL, data).then(response => response.json())
 }
 
 const getTeam = id => {
