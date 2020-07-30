@@ -1,16 +1,22 @@
+// BASE URL
 const baseURL = "https://indulge-challenge-backend.herokuapp.com/"
+// URL SIGN IN/SIGN UP
 const signInURL = `${baseURL}/sign-in`
 const signUpURL = `${baseURL}/sign-up`
 const validateURL = `${baseURL}/validate`
+// URLS FOR TOURNAMENTS
 const createTournamentURL = `${baseURL}/tournament`
-const createSeasonURL = `${baseURL}/season/`
-const createMatchURL =  `${baseURL}/match/`
-const createTeamURL =  `${baseURL}/team/`
 const getTournamentsURL = `${baseURL}/tournament-s/`
 const getOneTournamentURL = `${baseURL}/tournament/`
+// URLS FOR SEASONS
+const createSeasonURL = `${baseURL}/season/`
+const getSeasonURL = `${baseURL}/season/`
+// URLS FOR MATCHES
+const createMatchURL =  `${baseURL}/match/`
 const getMatchURL = `${baseURL}/match/`
 const getMatchesURL = `${baseURL}/match-es/`
-const getSeasonURL = `${baseURL}/season/`
+// URLS FOR TEAMS
+const createTeamURL =  `${baseURL}/team/`
 const getTeamURL = `${baseURL}/team/`
 const getTeamsURL = `${baseURL}/team-s/`
 
